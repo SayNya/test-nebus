@@ -10,5 +10,14 @@ services:
       - pgdata:/var/lib/postgresql/data
     restart: on-failure
 
+  app:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    restart: on-failure
+
+
 volumes:
   pgdata:
